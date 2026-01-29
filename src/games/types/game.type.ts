@@ -1,4 +1,5 @@
 import { Field, ObjectType } from "@nestjs/graphql";
+import { Achievement } from "src/achievements/types/achievements.type";
 
 @ObjectType()
 export class Game {
@@ -11,5 +12,8 @@ export class Game {
 
     @Field()
     genre: string;
+
+    @Field(() => [Achievement], { nullable: true })
+    achievements: Achievement[]
 
 }
