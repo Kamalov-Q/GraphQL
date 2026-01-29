@@ -1,0 +1,34 @@
+# GraphQL Code Generator – example config for the frontend
+# Copy to your frontend project as codegen.ts or codegen.yml
+# See README "Frontend integration" section.
+
+overwrite: true
+
+# Option A: Schema from running API (introspection)
+# Start this backend (npm run dev) then run codegen from the frontend.
+schema: "http://localhost:3001/graphql"
+
+# Option B: Schema from file (no server needed)
+# Copy schema: run "npm run schema:export" in the backend, then point to the file.
+# schema: "./schema.graphql"
+# Or if backend is in a sibling folder:
+# schema: "../gql/schema.graphql"
+
+documents: "src/**/*.{graphql,gql,ts,tsx}"
+
+generates:
+  src/generated/graphql.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+    config:
+      skipTypename: false
+      enumsAsConst: true
+
+# Optional: React Query / Apollo hooks
+# generates:
+#   src/generated/graphql.ts:
+#     plugins:
+#       - typescript
+#       - typescript-operations
+#       - typescript-react-apollo
