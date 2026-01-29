@@ -6,7 +6,7 @@ A GraphQL API built with **NestJS**, **Apollo**, and **MongoDB**. It manages gam
 
 - **NestJS** – backend framework  
 - **GraphQL** – Apollo Server with code-first schema  
-- **Mongoose** – MongoDB ODM  
+- **Mongoose** – MongoDB ORM  
 - **TypeScript**
 
 ## Prerequisites
