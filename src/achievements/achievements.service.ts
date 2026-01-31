@@ -12,9 +12,9 @@ export class AchievementsService {
     constructor(
         @InjectModel(AchievementsEntity.name) private readonly achievementsModel: Model<AchievementsDocument>,
         @InjectModel(GameEntity.name) private readonly gameModel: Model<GameDocument>
-
+ 
     ) { }
-
+ 
     async getAchievementsByGameId(gameId: string, args: AchievementsArgs) {
 
         const match = { gameId: new mongoose.Types.ObjectId(gameId) };
@@ -24,7 +24,7 @@ export class AchievementsService {
         }
 
         return this.achievementsModel.find(match).skip(args?.offset).limit(args?.limit);
-    }
+    } 
 
     async createAchievements(achievement: CreateAchievementInput) {
 
@@ -34,7 +34,7 @@ export class AchievementsService {
 
         if (!gameExists) {
             throw new NotFoundException('Game not found!');
-        }
+        } 
 
         const newAchievement = new this.achievementsModel({
             ...achievementData,
@@ -43,5 +43,5 @@ export class AchievementsService {
 
         return newAchievement.save();
     }
-
+ 
 }
