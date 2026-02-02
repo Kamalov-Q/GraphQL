@@ -16,7 +16,6 @@ export class AchievementsService {
     ) { }
  
     async getAchievementsByGameId(gameId: string, args: AchievementsArgs) {
- 
         const match = { gameId: new mongoose.Types.ObjectId(gameId) };
 
         if (args.difficulty) {
